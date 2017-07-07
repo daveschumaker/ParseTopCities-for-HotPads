@@ -1,7 +1,7 @@
 import appRoot from 'app-root-path';
 import fs from 'fs';
 
-const outputFile = appRoot + '/topCities.json';
+const outputDir = appRoot + '/output/';
 const pathToCsv = appRoot + '/top-cities.csv';
 
 export function readFile() {
@@ -18,11 +18,11 @@ export function readFile() {
     });
 }
 
-export function writeFile(data) {
+export function writeFile(data, filename = 'topCitiesEncoded.json') {
     return new Promise((resolve, reject) => {
         let json = JSON.stringify(data);
 
-        return fs.writeFile(outputFile, json, 'utf8', (err, data) => {
+        return fs.writeFile(outputDir + filename, json, 'utf8', (err, data) => {
             if (err) {
                 console.log('Error writing json file:', err);
                 return reject(err);

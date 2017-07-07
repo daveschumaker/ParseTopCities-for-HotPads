@@ -16,7 +16,7 @@ var _fs2 = _interopRequireDefault(_fs);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var outputFile = _appRootPath2.default + '/topCities.json';
+var outputDir = _appRootPath2.default + '/output/';
 var pathToCsv = _appRootPath2.default + '/top-cities.csv';
 
 function readFile() {
@@ -34,10 +34,12 @@ function readFile() {
 }
 
 function writeFile(data) {
+    var filename = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'topCitiesEncoded.json';
+
     return new Promise(function (resolve, reject) {
         var json = JSON.stringify(data);
 
-        return _fs2.default.writeFile(outputFile, json, 'utf8', function (err, data) {
+        return _fs2.default.writeFile(outputDir + filename, json, 'utf8', function (err, data) {
             if (err) {
                 console.log('Error writing json file:', err);
                 return reject(err);

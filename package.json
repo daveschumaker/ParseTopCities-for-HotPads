@@ -1,6 +1,6 @@
 {
   "name": "parse-top-cities",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,9 @@
     "nodemon": "1.11.0"
   },
   "dependencies": {
+    "app-root-dir": "^1.0.2",
     "app-root-path": "^2.0.1",
-    "csv": "1.1.1"
+    "csv": "1.1.1",
+    "lodash": "^4.17.4"
   }
 }
